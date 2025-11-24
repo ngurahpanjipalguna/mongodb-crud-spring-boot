@@ -3,7 +3,10 @@ package com.mongodb.example.demo.controller;
 import com.mongodb.example.demo.model.Product;
 import com.mongodb.example.demo.service.ProductService;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/products")
@@ -36,8 +39,15 @@ public class ProductController {
     }
 
     @DeleteMapping("/{id}")
-    public String delete(@PathVariable String id) {
-        service.delete(id);
-        return "Deleted product with id " + id;
-    }
+public Map<String, Object> delete(@PathVariable String id) {
+    service.delete(id);
+
+    Map<String, Object> response = new HashMap<>();
+    response.put("status", "success");
+    response.put("message", "Product deleted");
+    response.put("id", id);
+
+    return response;
+}
+
 }
