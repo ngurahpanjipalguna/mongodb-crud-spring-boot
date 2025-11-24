@@ -1,0 +1,16 @@
+meta {
+  name: UPDATE DATA
+  type: http
+  seq: 4
+}
+
+put {
+  url: 127.0.0.1:8020/api/products/6923fb27a786a815ff4f7fc9
+  body: json
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
