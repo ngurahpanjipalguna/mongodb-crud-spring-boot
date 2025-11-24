@@ -39,15 +39,15 @@ public class ProductController {
     }
 
     @DeleteMapping("/{id}")
-public Map<String, Object> delete(@PathVariable String id) {
-    service.delete(id);
+    public Map<String, Object> delete(@PathVariable String id) {
+        service.delete(id);
 
-    Map<String, Object> response = new HashMap<>();
-    response.put("status", "success");
-    response.put("message", "Product deleted");
-    response.put("id", id);
+        Map<String, Object> response = new HashMap<>();
+        response.put("status", "success");
+        response.put("message", "Product deleted");
+        response.put("id", id);
 
-    return response;
-}
+        return response;
+    }
 
 }
